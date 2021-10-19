@@ -75,7 +75,6 @@ def login():
             jsonify(
                 {
                     '_message': 'Invalid Credentials!',
-                    'Session': session,
                     'isLoggedIn': False
                 }
             )
