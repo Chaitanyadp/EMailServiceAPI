@@ -1,5 +1,6 @@
 from flask import Flask, request, session, jsonify, make_response, abort
 from flask_mysqldb import MySQL
+from flask_cors import CORS, cross_origin
 import MySQLdb.cursors
 import re
 import os
@@ -7,6 +8,7 @@ from emailservice import EmailService
 
 
 app = Flask(__name__)
+CORS(app)
 
 # Change this to your secret key (can be anything, it's for extra protection)
 app.config['SECRET_KEY'] = os.urandom(64)
