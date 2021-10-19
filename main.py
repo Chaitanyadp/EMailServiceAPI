@@ -11,11 +11,14 @@ app = Flask(__name__)
 # Change this to your secret key (can be anything, it's for extra protection)
 app.config['SECRET_KEY'] = os.urandom(64)
 
+# CLEARDB_DATABASE_URL: mysql://bcfcddffea3dae:9ff902aa@us-cdbr-east-04.cleardb.com/heroku_b929c3e9bc76e21?reconnect=true
+
 # Enter your database connection details below
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'Cdp@1996'
-app.config['MYSQL_DB'] = 'emailservice'
+app.config['MYSQL_HOST'] = 'us-cdbr-east-04.cleardb.com'
+app.config['MYSQL_USER'] = 'bcfcddffea3dae'
+app.config['MYSQL_PASSWORD'] = '9ff902aa'
+app.config['MYSQL_DB'] = 'heroku_b929c3e9bc76e21'
+
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_SSL'] = False
