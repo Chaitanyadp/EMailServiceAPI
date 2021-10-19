@@ -58,15 +58,17 @@ def login():
         session['email'] = account['email']
         print("inside login", session)
         # Generate Response
-        return make_response(
+        resp = make_response(
+
             jsonify(
                 {
                     '_message': 'Logged in successfully!',
-                    'Session': session,
                     'isLoggedIn': True
                 }
             )
         )
+        resp.headers["Set-Cookie"] = session
+        return resp
     else:
         # Generate Response
         return make_response(
