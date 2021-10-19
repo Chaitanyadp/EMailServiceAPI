@@ -35,6 +35,7 @@ def index():
 
 
 @app.route('/login', methods=['GET', 'POST'])
+@cross_origin(origin='*')
 def login():
     req_data = request.get_json(force=True)
     username = req_data['username']
