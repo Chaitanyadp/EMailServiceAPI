@@ -175,31 +175,45 @@ def send_email():
     mail.set_message(email_content, subject, username)
     mail.set_recipients(recipients)
 
-    for i in range(3):
-        try:
-            mail.connect()
-            mail.send_all(close_connection=False)
+    try:
+        mail.connect()
+        mail.send_all(close_connection=False)
 
-            return make_response(
-                jsonify(
-                    {
-                        '_message': 'Mail sent successfully!'
-                    }
-                )
+        return make_response(
+            jsonify(
+                {
+                    '_message': 'Mail sent successfully!'
+                }
             )
-        except Exception as err:
-            app.config['MAIL_SERVER'] = 'smtp.live.com'
-            app.config['MAIL_PORT'] = 587
-            if i < 2:  # i is zero indexed
-                continue
-            else:
-                return make_response(
-                    jsonify(
-                        {
-                            '_message': 'Failed to send email due to Exception: ' + err
-                        }
-                    )
-                )
+        )
+    except Exception as err:
+        print(err)
+
+    # for i in range(3):
+    #     try:
+    #         mail.connect()
+    #         mail.send_all(close_connection=False)
+
+    #         return make_response(
+    #             jsonify(
+    #                 {
+    #                     '_message': 'Mail sent successfully!'
+    #                 }
+    #             )
+    #         )
+    #     except Exception as err:
+    #         app.config['MAIL_SERVER'] = 'smtp.live.com'
+    #         app.config['MAIL_PORT'] = 587
+    #         if i < 2:  # i is zero indexed
+    #             continue
+    #         else:
+    #             return make_response(
+    #                 jsonify(
+    #                     {
+    #                         '_message': 'Failed to send email due to Exception: ' + err
+    #                     }
+    #                 )
+    #             )
 
 
 if __name__ == "__main__":
