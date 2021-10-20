@@ -156,9 +156,7 @@ def send_email():
     req_data = request.get_json()
     subject = req_data['subject']
     email_content = req_data['message']
-    print("before tuple", req_data['to'])
-    recipients = tuple(req_data['to'])
-    print("after tuple", recipients)
+    recipients = tuple(req_data['email'])
     if request.headers.get("email"):
         email = request.headers.get("email")
         print("Email here: ", email)
