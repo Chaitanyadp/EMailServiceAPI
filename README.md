@@ -6,6 +6,16 @@ You can use this API service to:
 2. Send email to anyone.
 
 
+## My pip package at pypi.org can be found below
+
+https://pypi.org/project/emailservice/
+
+Use below command to install and play the package.
+
+```
+pip install emailservice
+```
+
 ## FrontEnd Repo Details
 
 
