@@ -11,7 +11,7 @@ You can use this API service to:
 
 
 
-## Installation
+## Account settings
 1. Create a GMail account (You may use your current GMail but not it's not recommended because you will need to turn off 2 Factor Authentication, which makes your account less secure).
 2. Login to your GMail account and and make sure "Allow less secure apps" is turned "ON":
 
