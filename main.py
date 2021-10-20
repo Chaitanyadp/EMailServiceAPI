@@ -63,6 +63,7 @@ def login():
             jsonify(
                 {
                     '_message': 'Logged in successfully!',
+                    'FromEmail': session['email'],
                     'isLoggedIn': True
                 }
             )
@@ -175,10 +176,28 @@ def send_email():
     mail.set_message(email_content, subject, username)
     mail.set_recipients(recipients)
 
-    mail.connect()
-    mail.send_all(close_connection=False)
+    for i in range(3):
+        try:
+            mail.connect()
+            mail.send_all(close_connection=False)
 
-    return 'Success', 200
+            return make_response(
+                    jsonify(
+                        {
+                            '_message': 'Mail sent successfully!'
+                        }
+                    )
+                )
+        except Exception as err:
+            app.config['MAIL_SERVER'] = 'smtp.live.com'
+            app.config['MAIL_PORT'] = 587
+            if i < 2: # i is zero indexed
+                continue
+            else:
+                raise
+        break
+                
+            
 
 
 if __name__ == "__main__":
