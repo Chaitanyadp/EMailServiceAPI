@@ -18,7 +18,8 @@ pip install emailservice
 
 ## FrontEnd Repo Details
 
-
+Heroku - https://react-send-mail-service.herokuapp.com/
+Github - https://github.com/Chaitanyadp/React_Email_ServiceFE
 
 
 ## Account settings
